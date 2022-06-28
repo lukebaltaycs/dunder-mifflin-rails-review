@@ -1,0 +1,21 @@
+
+<h3> <%= @dog.name %></h3>
+
+<p style="color: green"> <%= notice %> </p>
+
+
+
+<p> Breed: <%= @dog.breed %></p>
+
+<p> Age: <%= @dog.age %></p>
+
+<h6> Employees Connected: </h6>
+<ul>
+<% @employees.each do |e| %>
+    <li> <%= link_to e.to_s, employee_path(e) %> </li>
+<% end %>
+</ul>
+
+<p> <%= link_to "Edit this dog", edit_dog_path(@dog)%> | <%= link_to "All Dogs", dogs_path%></p>
+
+<%= button_to "Send this dog to the farm", @dog, method: "delete" %>

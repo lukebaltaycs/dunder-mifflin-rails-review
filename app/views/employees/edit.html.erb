@@ -1,0 +1,51 @@
+<h1> Edit Employee Page </h1>
+
+<%= form_tag employee_path(@employee), method: "PATCH" do %>
+    <% if @employee.errors.any? %>
+      <div id="error_explanation">
+        <h2>There were some errors:</h2>
+        <ul>
+          <% @employee.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+  
+    <div class="field <%= ' field_with_errors' if @employee.errors[:first_name].any? %>">
+      <%= label_tag "first_name", "First Name" %>
+      <%= text_field_tag "first_name", @employee.first_name %>
+    </div>
+
+    <div class="field <%= ' field_with_errors' if @employee.errors[:last_name].any? %>">
+        <%= label_tag "last_name", "Last Name" %>
+        <%= text_field_tag "last_name", @employee.last_name %>
+    </div>
+
+    <div class="field <%= ' field_with_errors' if @employee.errors[:alias].any? %>">
+         <%= label_tag "alias", "Alias" %>
+        <%= text_field_tag "alias", @employee.alias %>
+    </div>
+
+    <div class="field <%= ' field_with_errors' if @employee.errors[:title].any? %>">
+         <%= label_tag "title", "Title" %>
+        <%= text_field_tag "title", @employee.title %>
+    </div>
+
+    <div class="field <%= ' field_with_errors' if @employee.errors[:office].any? %>">
+        <%= label_tag "office", "Office" %>
+        <%= text_field_tag "office", @employee.office %>
+    </div>
+
+    <div class="field <%= ' field_with_errors' if @employee.errors[:img_url].any? %>">
+        <%= label_tag "img_url", "Image URL" %>
+        <%= text_field_tag "img_url", @employee.img_url %>
+    </div>
+
+    <div>
+        <%= collection_select :employee, :dog_id, Dog.all, :id, :name %>
+    </div>
+
+    <%= submit_tag "Update Employee" %>
+  <% end %> 

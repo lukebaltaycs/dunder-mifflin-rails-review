@@ -1,0 +1,32 @@
+<h1> Edit Dog Page </h1>
+
+<%= form_tag dog_path(@dog), method: "patch" do %>
+    <% if @dog.errors.any? %>
+      <div id="error_explanation">
+        <h2>There were some errors:</h2>
+        <ul>
+          <% @dog.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+  
+    <div class="field <%= ' field_with_errors' if @dog.errors[:name].any? %>">
+      <%= label_tag "name", "Name" %>
+      <%= text_field_tag "name", @dog.name %>
+    </div>
+
+    <div class="field<%= ' field_with_errors' if @dog.errors[:breed].any? %>">
+    <%= label_tag "breed", "Breed" %>
+    <%= text_field_tag "breed", @dog.breed %>
+    </div>
+  
+    <div class="field<%= ' field_with_errors' if @dog.errors[:age].any? %>">
+    <%= label_tag "age", "Age" %>
+    <%= text_field_tag "age", @dog.age %>
+    </div>
+  
+    <%= submit_tag "Edit" %>
+  <% end %> 

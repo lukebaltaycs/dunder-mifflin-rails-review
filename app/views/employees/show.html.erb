@@ -1,0 +1,21 @@
+
+<h3> <%= @employee.to_s %></h3>
+
+<p style="color: green"> <%= notice %> </p>
+
+<p> First Name: <%= @employee.first_name %></p>
+<p> Last Name: <%= @employee.last_name %></p>
+<p> Alias: <%= @employee.alias %></p>
+<p> Title: <%= @employee.title %></p>
+<p> Office: <%= @employee.office %></p><br>
+<%= image_tag @employee.img_url %>
+
+<p> Dog: <%= link_to @employee.dog.name, dog_path(@employee.dog) %> </p>
+
+<p> <%= link_to "Edit this employee", edit_employee_path(@employee)%> | <%= link_to "All Employees", employees_path%></p>
+
+
+
+<%= button_to "Fire this employee", @employee, method: "delete" %>
+
+
